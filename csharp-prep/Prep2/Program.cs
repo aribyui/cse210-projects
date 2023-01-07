@@ -55,7 +55,7 @@ class Program
             sign = "";
         }
 
-        if (gradePercentage >= 97 || gradePercentage <=59)
+        if (gradePercentage >= 97 || gradePercentage <= 59)
         {
             sign = "";
         }
