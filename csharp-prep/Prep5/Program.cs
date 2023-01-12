@@ -44,7 +44,8 @@ class Program
 
         static int SquareNumber (int userNumber)
         {
-            int sqrtNum = userNumber * userNumber;
+            // int sqrtNum = userNumber * userNumber;
+            int sqrtNum = (int)Math.Pow(userNumber, 2);
             return sqrtNum;
         }
 
