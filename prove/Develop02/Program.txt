@@ -1,0 +1,75 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        
+        List<string> promptsList = new List<string>();
+        promptsList.Add("Who was the most interesting person I interacted with today?");
+        promptsList.Add("What was the best part of my day?");
+        promptsList.Add("How did I see the hand of the Lord in my life today?");
+        promptsList.Add("What was the strongest emotion I felt today?");
+        promptsList.Add("If I had one thing I could do over today, what would it be?");       
+
+        int numberOption = 0;    
+
+        Console.WriteLine("\nWelcome to 'My Journal App'");   
+
+        while (numberOption != 5)
+        {
+            Console.WriteLine("\nPlease select on the following choices:");
+            Console.WriteLine("1. Write\n2. Display\n3. Load\n4. Save\n5. Quit");
+            Console.Write("What would you like to do? ");
+            string option = Console.ReadLine();
+            numberOption = int.Parse(option);
+
+            if (numberOption == 1)
+            {
+                // Write    
+                Random randomIndex = new Random();
+                int index = randomIndex.Next(promptsList.Count);
+
+                RandomPrompt rp = new RandomPrompt();
+                rp._index = index;
+                rp._prompts = promptsList;                
+                rp.DisplayRandomPrompt();
+                string inputUser = Console.ReadLine();
+
+                string date = DateTime.Now.ToString("dd/MM/yyyy"); 
+                Entry newEntry = new Entry();
+                newEntry._date = date;
+                newEntry._entry = inputUser;
+                // newEntry.DisplayEntries();
+
+                Journal journal = new Journal();
+                journal._entries.Add(newEntry);
+                journal.Display();                
+            }
+            else if (numberOption == 2)
+            {
+                // Display 
+                // Journal displayEntries = new Journal();
+                // displayEntries.Display();
+            }
+            else if (numberOption == 3)
+            {
+                // Load
+            }
+            else if (numberOption == 4)
+            {
+                // Save
+            }
+            else
+            {
+                // False
+            }
+        }
+
+        Console.Write("\nThanks for using 'My Journal App'\n\n");
+
+    }
+}
+
+// Resources:
+// https://www.techiedelight.com/get-current-time-without-date-csharp/#:~:text=1.%20Using%20DateTime.ToString()%20method
