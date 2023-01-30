@@ -9,9 +9,12 @@ class Program
         promptsList.Add("What was the best part of my day?");
         promptsList.Add("How did I see the hand of the Lord in my life today?");
         promptsList.Add("What was the strongest emotion I felt today?");
-        promptsList.Add("If I had one thing I could do over today, what would it be?");       
+        promptsList.Add("If I had one thing I could do over today, what would it be?");
 
         int numberOption = 0;
+
+        Entry newEntry = new Entry();
+        Journal addEntry = new Journal();
 
         Console.WriteLine("\nWelcome to 'My Journal App'");
 
@@ -32,27 +35,17 @@ class Program
                 Console.WriteLine(randomPrompt); // (e.g.) output: "What was the best part of my day?" or... "If I had one thing I could do over today, what would it be?"
                 string userEntry = Console.ReadLine();
 
-                Entry newEntry = new Entry();
                 string date = DateTime.Now.ToString("dd/MM/yyyy");
                 newEntry._date = date;
                 newEntry._prompt = randomPrompt;
                 newEntry._entry = userEntry;
                 // newEntry.Display(); // (e.g.) output: Date: 29/01/2023 - Prompt: What was the best part of my day? study at my computer
 
-                
-
-
-
-                Journal addEntry = new Journal();
                 addEntry._entries.Add(newEntry);
-                // addEntry.DisplayRandomPrompt(); // (e.g.) output: Date: 29/01/2023 - Prompt: What was the best part of my day? study at my computer
-
             }
             else if (numberOption == 2)
             {
-                // Display (It doesn't work)
-                // Journal showList = new Journal();
-                // showList.DisplayRandomPrompt();
+                addEntry.DisplayRandomPrompt();
             }
         }
 
