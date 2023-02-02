@@ -14,7 +14,7 @@ class Program
         int numberOption = 0;
 
         Entry newEntry = new Entry();
-        Journal addEntry = new Journal();
+        Journal j = new Journal();
 
         Console.WriteLine("\nWelcome to 'My Journal App'");
 
@@ -33,19 +33,21 @@ class Program
                 int randomIndex = index.Next(promptsList.Count());
                 string randomPrompt = promptsList[randomIndex];
                 Console.WriteLine(randomPrompt); // (e.g.) output: "What was the best part of my day?" or... "If I had one thing I could do over today, what would it be?"
+                
+                // retrieve user entry
                 string userEntry = Console.ReadLine();
-
-                string date = DateTime.Now.ToString("dd/MM/yyyy");
-                newEntry._date = date;
+                // create a varible to store the current date
+                string currentDate = DateTime.Now.ToString("dd/MM/yyyy");
+                newEntry._date = currentDate;
                 newEntry._prompt = randomPrompt;
                 newEntry._entry = userEntry;
-                // newEntry.Display(); // (e.g.) output: Date: 29/01/2023 - Prompt: What was the best part of my day? study at my computer
+                // newEntry.Display(); // (e.g.) output: Date: 29/01/2023 - Prompt: What was the best part of my day?\nstudy at my computer
 
-                addEntry._entries.Add(newEntry);
+                j._entries.Add(newEntry);                
             }
             else if (numberOption == 2)
             {
-                addEntry.DisplayRandomPrompt();
+                j.DisplayRandomPrompt();
             }
         }
 
